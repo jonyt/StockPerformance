@@ -11,7 +11,7 @@ namespace ArticleDownloader
     {
         private static IDictionary<string, bool> seen = new Dictionary<string, bool>();
         private const string DOWNLOADS_FOLDER = "downloads";
-        private const int DOWNLOAD_LIMIT = 50;
+        private const int DOWNLOAD_LIMIT = 500;
 
         static void Main(string[] args)
         {

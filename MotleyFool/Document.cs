@@ -5,6 +5,7 @@ using Calais;
 using HtmlAgilityPack;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 /**
  * Holds one article and processes it. Recommendation text and date is parsed from HTML and stock tickers are extracted using
@@ -17,7 +18,12 @@ namespace MotleyFool
     public class Document
     {
         private string filepath;
-        
+        private Regex[] textBlacklistItems = new Regex[] { 
+            new Regex("\bputs?\b"), 
+            new Regex("underperform call", RegexOptions.IgnoreCase),
+            new Regex("former .+ pick", RegexOptions.IgnoreCase),
+        };
+
         public string Html { get; private set; }
         public HtmlDocument HtmlDoc { get; private set; }
         public string Text { get; private set; }
@@ -60,6 +66,14 @@ namespace MotleyFool
             try
             {
                 Text = footer.InnerText;
+                foreach (var regex in textBlacklistItems)
+                {
+                    if (regex.IsMatch(Text))
+                    {
+                        Text = null;
+                        return;
+                    }
+                }
             }
             catch (Exception e)
             {
@@ -82,7 +96,7 @@ namespace MotleyFool
                 return;
             }                
             Console.WriteLine("Extracting tickers");
-            var calais = new CalaisDotNet("hb6zpfx3mdyywryvmdjfz7n9", Text);            
+            var calais = new CalaisDotNet("", Text);            
             var document = calais.Call<CalaisJsonDocument>();
 
             try
