@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Stockperformance by jonyt</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Stockperformance</h1>
+        <p>A tool to research Motley Fool's stock recommendations.</p>
+
+        <p class="view"><a href="https://github.com/jonyt/StockPerformance">View the Project on GitHub <small>jonyt/StockPerformance</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/jonyt/StockPerformance/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/jonyt/StockPerformance/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/jonyt/StockPerformance">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="should-you-follow-stock-recommendations-from-the-motley-fool" class="anchor" href="#should-you-follow-stock-recommendations-from-the-motley-fool"><span class="octicon octicon-link"></span></a>Should you follow stock recommendations from the <a href="http://www.fool.com">Motley Fool</a>?</h1>
+
+<p><strong>tl;dr</strong> No, no you shouldn't. Why? Because they usually do worse than the S&amp;P 500 and the NASDAQ indexes. So you can basically do better by putting your money on one of those. It's a lot let hassle too. </p>
+
+<p>How do I know this? I downloaded and parsed 214 articles from the Motley Fool starting from Nov. 2010, looking for stock recommendations. Since the end of 2010 is far enough from the (anomalous) big crash of ’08 I thought it would be a good time to rely on expert opinion on stock. I found 86 recommendations and compared them to the NASDAQ index and S&amp;P 500. I then looked at their aggregate performance 6, 12, 18, 24 and 30 months onwards. At almost all of these points I would've been better off putting my money into one of the two indexes rather than into the <a href="http://www.fool.com">Fool</a>'s recommended stocks. So much for expert opinion, huh? </p>
+
+<table>
+<tr>
+<th>Months</th>
+<th>% of stocks higher than S&amp;P 500</th>
+  </tr>
+<tr>
+<td>6</td>
+<td>48.84%</td>
+</tr>
+<tr>
+<td>12</td>
+<td>53.49%</td>
+</tr>
+<tr>
+<td>18</td>
+<td>50.00%</td>
+</tr>
+<tr>
+<td>24</td>
+<td>44.19%</td>
+</tr>
+<tr>
+<td>30</td>
+<td>45.35%</td>
+</tr>
+</table><table>
+<tr>
+<th>Months</th>
+<th>% of stocks higher than NASDAQ</th>
+  </tr>
+<tr>
+<td>6</td>
+<td>51.16%</td>
+</tr>
+<tr>
+<td>12</td>
+<td>55.81%</td>
+</tr>
+<tr>
+<td>18</td>
+<td>44.19%</td>
+</tr>
+<tr>
+<td>24</td>
+<td>44.19%</td>
+</tr>
+<tr>
+<td>30</td>
+<td>44.19%</td>
+</tr>
+</table><p>And <a href="https://docs.google.com/spreadsheet/ccc?key=0AgaNSYxxtdeLdExLR1dGQ3p6SkdRUEhvc1kxNXE0SkE&amp;usp=sharing">here</a> are all the results.</p>
+
+<p>While the unreliability of stock predictions issued by finance experts is not news, Nobel Prize winner Daniel Kahneman <a href="http://www.nytimes.com/2011/10/23/magazine/dont-blink-the-hazards-of-confidence.html?pagewanted=all&amp;_r=0">found out about it</a> years ago, the temptation to listen to them seems to be irresistible. There's something innately human about wanting to know the future and listening to experts who claim to know what it holds. After all, though the reliability of astrologers has been thoroughly debunked, the market for expert opinion about the influence of the alignment of the stars on the future has never been better. Why this is is a mystery to me but it does explain why so many people listen to expert opinion, even when it appears to be worthless. Indeed, much of the finance industry is based upon people's confidence in expert opinion about stocks. </p>
+
+<p>It’s a disheartening thought – over the long term you can’t beat the market. There does seem to be a tiny minority of investors, such as Warren Buffet and George Soros, who do significantly better than average. But for the rest of us, it seems we’re better off buying a stock index. </p>
+
+<hr><p>Want to verify my results?
+No problem. Here’s what you have to do:  </p>
+
+<dl>
+<dt>Step one</dt>
+  <dd>Fork my code.</dd>
+  <dt>Step two</dt>
+  <dd>Use the ArticleDownloader project within the code to download articles from  that were published at the Motley Fool.</dd>
+  <dt>Step three</dt>
+  <dd>Copy the files into the dataFiles directory of the MotleyFool project and run it. What the code does is look for the paragraph in each article giving the stock recommendations. It then extracts the company names and gets their historical data.</dd>
+</dl>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/jonyt">jonyt</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-41433139-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
